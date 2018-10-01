@@ -15,18 +15,29 @@ public class DictionaryCommandLine {
     }
 
     public static void dictionaryAdvanced() throws IOException {
+        DictionaryManagement.InsertFromFile();
         Scanner scanIn = new Scanner(System.in);
         System.out.println("List of to-do: ");
-        System.out.println("1. To show all the words\n2. To look for a word");
+        System.out.println("1. To show all the words\n2. To look for a word\n3. To insert new words\n4. To update word\n5. To export into new file");
         System.out.print("Choose what u want to do: ");
         int Request = scanIn.nextInt();
         switch (Request) {
             case 1:
-                DictionaryManagement.InsertFromFile();
                 DictionaryCommandLine.showAllWords();
                 break;
             case 2:
-                DictionaryManagement.dictionaryLookup();
+                DictionaryManagement.dictionarySearcher();
+                break;
+            case 3:
+                DictionaryManagement.dictionaryInsert();
+                break;
+            case 4:
+                DictionaryManagement.dictionaryUpdate();
+                System.out.print("New list of word: ");
+                DictionaryCommandLine.showAllWords();
+                break;
+            case 5:
+                DictionaryManagement.dictionaryExport();
                 break;
             default:
                 System.out.print("False choice! Please choose again");
