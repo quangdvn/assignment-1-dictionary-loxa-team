@@ -1,0 +1,11 @@
+hello		xin chao
+dog		con cho
+cat		con meo
+fact		su that
+object		doi tuong
+interesting		thu vi
+chair		cai ghe
+actor		dien vien nam
+actress		dien vien nu
+boy	   con trai
+girl	   con gai
