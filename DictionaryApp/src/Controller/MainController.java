@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -104,6 +105,7 @@ public class MainController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("AddFunction");
         stage.setScene(new Scene(root, 500, 400));
+        stage.getIcons().add(new Image("/Image/Pencil.png"));
         stage.show();
     }
 

@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../FXML_Design/MainDictionary.fxml"));
         primaryStage.setTitle("Dictionary");
-        primaryStage.getIcons().add(new Image("/Image/Pencil.png"));
+        primaryStage.getIcons().add(new Image("/Image/Dictionary.png"));
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }

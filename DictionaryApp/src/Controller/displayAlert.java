@@ -18,7 +18,7 @@ public class displayAlert {
 
         Stage stage;
         stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("Image/Pencil.png"));
+        stage.getIcons().add(new Image("Image/Succeed.png"));
 
         alert.showAndWait();
     }
@@ -32,7 +32,7 @@ public class displayAlert {
 
             Stage stage;
             stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image("Image/Pencil.png"));
+            stage.getIcons().add(new Image("Image/Succeed.png"));
 
             alert.getButtonTypes().setAll(Yes, No);
             Optional<ButtonType> result = alert.showAndWait();
