@@ -18,7 +18,7 @@ public class Controller {
     /**
      * reset database
      */
-    protected void refreshDatabase() {
+    public static void refreshDatabase() {
         String query = "SELECT word FROM av";
         try {
         	preparedStatement = connection.prepareStatement(query);
@@ -30,13 +30,15 @@ public class Controller {
             }
             preparedStatement.close();
             resultSet.close();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     
-    
+    /**
+     * Load Databas
+     * @return
+     */
     public static TreeSet<String> loadDataBase() {
     	String Sql = "SELECT word FROM av";
     	TreeSet<String> arr = new TreeSet<String>();
@@ -53,12 +55,17 @@ public class Controller {
 		
         return arr;
     }
-    
-    public static void displaySelectedItem(ListView<String> listWord, WebView webView) {
+    /**
+     * Display listView
+     * @param listWord
+     * @param webView
+     */
+    public static void displaySelectedItem(ListView<String> listWord, WebView webView, String word) {
         String query = "SELECT html FROM av WHERE word=?";
         try {
         	preparedStatement = connection.prepareStatement(query);
-        	preparedStatement.setString(1, listWord.getSelectionModel().getSelectedItem());
+        	//preparedStatement.setString(1, listWord.getSelectionModel().getSelectedItem());
+        	preparedStatement.setString(1, word);
         	resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
             	webView.getEngine().loadContent(resultSet.getString(1));
@@ -67,6 +74,58 @@ public class Controller {
             resultSet.close();
         } catch (SQLException se) {
             se.printStackTrace();
+        }
+    }
+    
+    /**
+     * Delete Word
+     * @param listWord
+     * @param webView
+     */
+    public static void deleteWord(ListView<String> listWord, WebView webView){
+        try {
+            String selected = listWord.getSelectionModel().getSelectedItem();
+            if(selected != null){
+                System.out.println(selected);
+
+                if (selected != null) {
+                    String query = "DELETE FROM av WHERE word=?";
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.setString(1, selected);
+                    preparedStatement.executeUpdate();
+
+                    preparedStatement.close();
+                    resultSet.close();
+                    refreshDatabase();
+                    webView.getEngine().loadContent("");
+                }
+            }
+            else{
+                //showAlert.AlertInfo("Please choose a word you want to delete!!");
+            	System.out.println("Please choose a word you want to delete!!");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Add word
+     * @param Word
+     * @param Explain
+     */
+    public static void addWord(String Word, String Explain){
+        String query = "INSERT INTO av (word, html) VALUES(?,?)";
+        try{
+        	preparedStatement = connection.prepareStatement(query);
+        	preparedStatement.setString(1, Word);
+            preparedStatement.setString(2, Explain);
+            preparedStatement.execute();
+            preparedStatement.close();
+            refreshDatabase();
+
+        } catch (SQLException e1) {
+            e1.printStackTrace();
         }
     }
     
