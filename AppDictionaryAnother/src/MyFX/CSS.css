@@ -1,0 +1,9 @@
+#button:hover {
+    -fx-background-color : #01579B;
+}
+#button-quit:hover {
+	-fx-background-color : #FF0000;
+}
+#button{
+	-fx-background-color : #29B6F6;
+}
