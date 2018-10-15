@@ -22,6 +22,8 @@ public class AlertBoxTranslate {
 		AnchorPane root = new AnchorPane();
 		root.setPrefSize(600.0, 273.0);
 		
+		Scene scene = new Scene(root,600,273);
+		
 		ObservableList<String> listLeft = FXCollections.observableArrayList("Document");
 		ChoiceBox<String> choiceBoxLeft = new ChoiceBox<>();
 		 
@@ -52,7 +54,7 @@ public class AlertBoxTranslate {
 		choiceBoxRight.setItems(listRight);
 		choiceBoxRight.getSelectionModel().selectFirst();
  
-		CButton button = new CButton(root,"");
+		CButton button = new CButton(root,"button");
 		
 		choiceBoxRight.getSelectionModel().selectedIndexProperty()
                 .addListener(new ChangeListener<Number>() {
@@ -66,20 +68,24 @@ public class AlertBoxTranslate {
 		CTextArea textLeft = new CTextArea(root,"");
 		textLeft.Init(14.0, 61.0, 252.0, 164.0);
 		textLeft.getTextArea().setPromptText("Document here...");
-		CTextArea textRight = new CTextArea(root,"");
+		CTextArea textRight = new CTextArea(root,"button");
 		textRight.Init(334.0, 61.0, 252.0, 164.0);
 		textRight.getTextArea().setPromptText("Means here...");
 		
 		
-		button.Init(268.0, 131.0, 64.0 , 31.0, "===>");
+		button.Init(268.0, 131.0, 64.0 , 31.0, "=>");
+		button.setImage("arrow.png", 30, 40);
 		button.getButton().setOnAction(e -> AlertBoxTranslate.Translate(textLeft, textRight));
+		button.setCSS(scene);
 		
 		
-		CButton exit = new CButton(root,"");
+		CButton exit = new CButton(root,"button-quit");
 		exit.Init(14.0, 228.0,  572.0, 41.0, "Exit");
+		exit.setImage("quit.png", 30, 40);
 		exit.getButton().setOnAction(e -> window.close());
+		exit.setCSS(scene);
 		
-		Scene scene = new Scene(root,600,273);
+		
 		
 		window.setTitle(title);
 		window.setScene(scene);
@@ -95,17 +101,7 @@ public class AlertBoxTranslate {
 				
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
-				Stage window = new Stage();
-				window.setTitle("No Internet");
-				StackPane root = new StackPane();
-				root.setPrefSize(400.0, 200.0);
-				CButton button = new CButton(root,"");
-				button.Init(10.0, 100.0, "No Internet");
-				button.getButton().setOnAction(e -> window.close());
-				
-				Scene scene = new Scene(root,400,200);
-				window.setScene(scene);
-				window.showAndWait();
+				NotInternet.display();
 				isRun = true;
 				//e1.printStackTrace();
 			}
