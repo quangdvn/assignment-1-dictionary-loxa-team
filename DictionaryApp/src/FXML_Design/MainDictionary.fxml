@@ -12,9 +12,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+<BorderPane fx:id="mainScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -37,9 +38,9 @@
       </MenuBar>
    </top>
    <left>
-      <Pane prefHeight="375.0" prefWidth="136.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="leftPane" prefHeight="575.0" prefWidth="144.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="143.0" layoutY="-1.0" prefHeight="576.0" prefWidth="658.0">
+            <AnchorPane layoutX="143.0" layoutY="-1.0" prefHeight="576.0" prefWidth="656.0">
                <children>
                   <WebView fx:id="myWebView" layoutX="240.0" layoutY="84.0" prefHeight="492.0" prefWidth="417.0" />
                   <TextField fx:id="myTextField" layoutY="84.0" onAction="#searchWord" onKeyTyped="#searchWord" prefHeight="46.0" prefWidth="240.0" promptText="Search here . . . . ">
@@ -55,14 +56,60 @@
                      <image>
                         <Image url="@../Image/trashIcon.png" />
                      </image></ImageView>
-                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="147.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="147.0" layoutY="25.0" onMouseClicked="#Pronunciation" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/speaker.png" />
                      </image>
                   </ImageView>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="218.0" layoutY="25.0" onMouseClicked="#Pronunciation" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/Favorite.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
-            <HBox prefHeight="90.0" prefWidth="143.0" />
+            <HBox fx:id="Home" layoutY="129.0" prefHeight="90.0" prefWidth="143.0" styleClass="hover_border">
+               <children>
+                  <ImageView fitHeight="55.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" styleClass="img">
+                     <image>
+                        <Image url="@../Image/moreDictionary.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" Home" wrappingWidth="85.13671875">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="Online" layoutY="219.0" prefHeight="90.0" prefWidth="143.0" styleClass="hover_border">
+               <children>
+                  <ImageView fitHeight="55.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/GG.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" Online" wrappingWidth="85.13671875">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="Favorite" layoutX="1.0" layoutY="309.0" prefHeight="90.0" prefWidth="143.0" styleClass="hover_border">
+               <children>
+                  <ImageView fitHeight="55.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" styleClass="img">
+                     <image>
+                        <Image url="@../Image/Favorite.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Favorite" wrappingWidth="85.13671875">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
          </children>
       </Pane>
    </left>
