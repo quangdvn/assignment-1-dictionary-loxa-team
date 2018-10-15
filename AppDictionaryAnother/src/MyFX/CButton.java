@@ -1,7 +1,10 @@
 package MyFX;
 
 import MyScene.primaryCScene;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public class CButton {
@@ -26,8 +29,10 @@ public class CButton {
 		this.button.setText(name);
 		this.root.getChildren().add(this.button);
 	}
-	public void setImage(String url) {
-
+	public void setImage(String url,int with, int height) {
+		Image image = new Image(url,with,height,true,true);
+		this.button.setGraphic(new ImageView(image));
+		//this.button.setPrefSize(40.0, 40.0);
 	}
 	public void Init(double x, double y, String name) {
 		this.button.setLayoutX(x);
@@ -36,7 +41,10 @@ public class CButton {
 		this.root.getChildren().add(this.button);
 	}
 	
-	
+	public void setCSS(Scene scene) {
+		scene.getStylesheets().add(getClass().getResource("CSS.css").toExternalForm());
+	}
+
 	public void handleClick() {
 		
 	}
