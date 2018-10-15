@@ -1,5 +1,10 @@
 package MyMain;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import Database.Controller;
 import MyFX.AlertBoxAdd;
 import MyFX.AlertBoxTranslate;
@@ -8,6 +13,7 @@ import MyFX.CListView;
 import MyFX.CTextField;
 import MyFX.CWebView;
 import MyFX.ListWord;
+import MyFX.NotInternet;
 import MyScene.primaryCScene;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -19,6 +25,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.InputEvent;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 public class Handle {
 
@@ -27,7 +35,7 @@ public class Handle {
 		primaryCScene.Init();
 			// Init
 			CButton button_translate = new CButton(primaryCScene.getRoot(),"button");
-			CButton button_add = new CButton(primaryCScene.getRoot(),"button");
+			CButton button_add = new CButton(primaryCScene.getRoot(),"button-add");
 			CButton button_game = new CButton(primaryCScene.getRoot(),"button");
 			CButton button_info = new CButton(primaryCScene.getRoot(),"button");
 			CButton button_quit = new CButton(primaryCScene.getRoot(),"button-quit");
@@ -62,9 +70,11 @@ public class Handle {
 			CTextField text_filde_search = new CTextField(primaryCScene.getRoot(),"text-filde-search");
 			// Google translate button
 			button_translate.Init(14.0, 14.0, 122.0, 73.0, "Translate");
+			button_translate.setImage("google.png", 40, 60);
 			button_translate.getButton().setOnAction(e -> AlertBoxTranslate.display("Google Translate"));
 			// add button 
 			button_add.Init(608.0, 54.0, 108.0, 37.0, "Add");
+			button_add.setImage("add.png", 50, 25);
 			button_add.getButton().setOnAction(new EventHandler<ActionEvent>() {
 			       @Override
 			       public void handle(ActionEvent event) {
@@ -79,10 +89,25 @@ public class Handle {
 			
 			// Game button
 			button_game.Init(14.0, 108.0, 122.0, 73.0, "Game");
+			button_game.setImage("game.png", 40, 60);
 			// Info button
 			button_info.Init(14.0, 196.0, 122.0, 73.0, "Info");
+			button_info.setImage("info.png", 40, 60);
+			button_info.getButton().setOnAction(e -> {
+	            if(Desktop.isDesktopSupported())
+	            {
+	            	try {
+	                    Desktop.getDesktop().browse(new URI("https://www.facebook.com/NguyenNgocHaiNewVersion")); 
+	                } catch (IOException e1) {
+	                	NotInternet.display();	
+	                } catch (URISyntaxException e1) {
+	                	NotInternet.display();
+	                }
+	            }
+	        });
 			// Quit button
 			button_quit.Init(14.0, 369.0, 122.0, 73.0, "Quit");
+			button_quit.setImage("quit.png", 40, 60);
 			button_quit.getButton().setOnAction(new EventHandler<ActionEvent>() {
 			       @Override
 			       public void handle(ActionEvent event) {
@@ -92,6 +117,7 @@ public class Handle {
 			});
 			// Button search
 			button_search.Init(608.0, 17.0, 108.0, 31.0, "Search");
+			button_search.setImage("search.png",30,25);
 			button_search.getButton().setOnAction(new EventHandler<ActionEvent>() {
 			       @Override
 			       public void handle(ActionEvent event) {
@@ -100,12 +126,16 @@ public class Handle {
 			});
 			// Button sound
 			button_sound.Init(332.0, 57.0, 81.0, 31.0, "Sound");
+			button_sound.setImage("sound.png", 20, 20);
 			// Restore Button
 			button_restore.Init(518.0, 57.0, 81.0, 31.0, "Restore");
+			button_restore.setImage("restore.png", 20, 20);
 			// Like Button
 			button_like.Init(662.0, 99.0, 52.0, 31.0, "Like");
+			button_like.setImage("like.png", 20, 20);
 			// Remove button
 			button_remove.Init(425.0, 57.0, 81.0, 31.0, "Remove");
+			button_remove.setImage("remove.png", 20, 20);
 			/**
 			 * remove word and update database
 			 */
@@ -122,6 +152,7 @@ public class Handle {
 			});
 			// Login button
 			button_login.Init(14.0, 281.0, 122.0, 73.0, "Login");
+			button_login.setImage("login.png", 40, 60);
 
 			// web view
 			web_view.init(332.0, 95.0, 388.0, 347.0);
