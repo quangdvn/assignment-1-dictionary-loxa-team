@@ -1,14 +1,13 @@
 package Controller;
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.util.Optional;
 
-public class displayAlert {
+class DisplayAlert {
 
     public void succeedAlert(String infor) {
         Alert alert  = new Alert(Alert.AlertType.INFORMATION);
@@ -23,20 +22,29 @@ public class displayAlert {
         alert.showAndWait();
     }
 
-    public  void confirmAlert() {
-        {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setContentText("Are you sure to delete this word ?");
-            ButtonType Yes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-            ButtonType No = new ButtonType("No", ButtonBar.ButtonData.NO);
+    public boolean confirmAlert() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Are you sure to delete this word ?");
 
-            Stage stage;
-            stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image("Image/Succeed.png"));
+        Stage stage;
+        stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("Image/Confirm.jpg"));
 
-            alert.getButtonTypes().setAll(Yes, No);
-            Optional<ButtonType> result = alert.showAndWait();
-        }
+        Optional<ButtonType> result = alert.showAndWait();
+        if( result.get() == ButtonType.OK ) return true;
+        else return false;
+    }
 
+    public void warningAlert(String Infor) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(null);
+        alert.setHeaderText(null);
+        alert.setContentText(Infor);
+
+        Stage stage;
+        stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("Image/Warning.png"));
+
+        alert.showAndWait();
     }
 }

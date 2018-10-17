@@ -8,7 +8,7 @@ public class DatabaseConnection {
     public static Connection getConnection() {
         try {
             Class.forName("org.sqlite.JDBC");
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/ASUS/Desktop/OOP/DictionaryApp/src/database/Eng-Viet_Dictionary.db");
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:src/database/Eng-Viet_Dictionary.db");
             return connection;
         }
         catch(Exception Err) {

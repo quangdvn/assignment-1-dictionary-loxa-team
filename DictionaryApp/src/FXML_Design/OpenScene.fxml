@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+   <children>
+      <BorderPane fx:id="mainScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
+         <top>
+            <MenuBar mouseTransparent="true" BorderPane.alignment="CENTER">
+               <menus>
+                  <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Edit">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+         </top>
+         <left>
+            <Pane fx:id="leftPane" prefHeight="575.0" prefWidth="143.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="Home" layoutY="130.0" onMouseClicked="#mainLoadUp" prefHeight="90.0" prefWidth="143.0" styleClass="hover_border">
+                     <children>
+                        <ImageView fitHeight="55.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" styleClass="img">
+                           <image>
+                              <Image url="@../Image/moreDictionary.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" onMouseClicked="#mainLoadUp" strokeType="OUTSIDE" strokeWidth="0.0" text=" Home" wrappingWidth="85.13671875">
+                           <font>
+                              <Font name="Times New Roman" size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="Online" layoutY="220.0" onMouseClicked="#googleLoadUp" prefHeight="90.0" prefWidth="143.0" styleClass="hover_border">
+                     <children>
+                        <ImageView fitHeight="55.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/GG.jpg" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" onMouseClicked="#googleLoadUp" strokeType="OUTSIDE" strokeWidth="0.0" text=" Online" wrappingWidth="85.13671875">
+                           <font>
+                              <Font name="Times New Roman" size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="Favorite" layoutY="310.0" onMouseClicked="#favoriteLoadUp" prefHeight="90.0" prefWidth="143.0" styleClass="hover_border">
+                     <children>
+                        <ImageView fitHeight="55.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" styleClass="img">
+                           <image>
+                              <Image url="@../Image/Favorite.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Favorite" wrappingWidth="85.13671875">
+                           <font>
+                              <Font name="Times New Roman" size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </left>
+         <center>
+            <Pane fx:id="myWelcomePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: FFDAB9;" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fx:id="WelcomeText" layoutX="197.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to our dictionary " wrappingWidth="234.03125" />
+                  <Label fx:id="WelcomeLabel" layoutX="156.0" layoutY="160.0" lineSpacing="0.5" prefHeight="127.0" prefWidth="346.0" text="1. Search words in the ordinary way                   2. Go online to search by Google Translate                                                             3. See your favorite list" wrapText="true" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="218.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/Smile.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="myEnjoy" layoutX="228.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enjoy the App !!!" wrappingWidth="131.259765625" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

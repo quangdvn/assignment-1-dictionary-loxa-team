@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="cmulex">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/Lib/soundLib/cmulex.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

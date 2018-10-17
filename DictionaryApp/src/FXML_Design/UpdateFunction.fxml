@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.HTMLEditor?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UpdateFunctionController">
+   <children>
+      <HTMLEditor fx:id="fixedDescrip" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="106.0" layoutY="151.0" prefHeight="248.0" prefWidth="506.0" />
+      <Button fx:id="myConfirm" layoutX="596.0" layoutY="425.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Confirm">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </Button>
+      <TextField fx:id="fixedWord" layoutX="215.0" layoutY="63.0" prefHeight="42.0" prefWidth="270.0">
+         <font>
+            <Font name="Times New Roman" size="17.0" />
+         </font>
+      </TextField>
+      <Label alignment="CENTER" layoutX="290.0" layoutY="32.0" mouseTransparent="true" prefHeight="31.0" prefWidth="120.0" text="Fixed word">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="274.0" layoutY="120.0" mouseTransparent="true" prefHeight="31.0" prefWidth="153.0" text="Fixed description">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
